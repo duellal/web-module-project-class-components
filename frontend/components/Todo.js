@@ -11,8 +11,7 @@ export default class Todo extends React.Component {
       //ClassName allows to toggle the line-through on and off depending on the state of 'completed'
       <div 
       className={`${this.props.todo.completed ? 'toggle' : ''}`} 
-      onClick={this.handleClick}
-      >
+      onClick={this.handleClick}>
         <p>
           {this.props.todo.name}
         </p>

@@ -2,38 +2,13 @@ import React from 'react'
 
 //this allows the user to add to the todo + hide completed items or show all of the todos
 export default class Form extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      input: ''
-    }
-  }
-
-  handleChanges = e => {
-    this.setState({ input: e.target.value })
-  }
-
-  handleSubmit = e => {
-    e.preventDefault()
-
-    //prevents adding nothing as a todo
-    if(this.state.input === ""){
-      null
-    }
-    else(this.props.addTodo(this.state.input))
-
-    //resets the input + placeholder text
-    e.target.reset()
-    this.setState({input: ''})
-  }
-
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.props.handleFormSubmit}>
       <div>
         <input 
         type = 'text'
-        onChange={this.handleChanges} 
+        onChange={this.props.handleFormChanges} 
         placeholder='Todo'/>
         <button> Submit </button>
       </div>

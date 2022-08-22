@@ -4,7 +4,6 @@ import Todo from './Todo'
 
 //Renders the complete todo list
 export default class TodoList extends React.Component {
-
   render() {
     return (
       <div>
@@ -14,6 +13,7 @@ export default class TodoList extends React.Component {
             key={item.id} 
             todo={item} 
             toggleTodo={this.props.toggleTodo}
+            handleTodoClick={this.props.handleTodoClick}
             />)
         })
         }

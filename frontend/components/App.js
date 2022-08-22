@@ -18,10 +18,12 @@ export default class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      todos: todos
+      todos: todos,
+      input: ''
     }
   }
 
+  //TodoList Component Handlers:
   //Crossing out an item once clicked on
   toggleTodo = (id) => {
    const newTodoList = this.state.todos.map(item => {
@@ -40,6 +42,7 @@ export default class App extends React.Component {
    })
   }
 
+  //Form Component Handlers: 
   //Adding an item to the list:
   addTodo = (item) => {
     const newTodo = {
@@ -55,8 +58,30 @@ export default class App extends React.Component {
     })
   }
 
+  //input changes:
+  handleFormChanges = e => {
+    this.setState({ input: e.target.value })
+  }
+
+  //submit changes:
+  handleFormSubmit = e => {
+    e.preventDefault()
+
+    //prevents adding nothing as a todo
+    if(this.state.input === ""){
+      null
+    }
+    else(this.addTodo(this.state.input))
+
+    //resets the input + placeholder text
+    e.target.reset()
+    this.setState({input: ''})
+  }
+
   //Clearing completed todos:
-  clearCompletedTodos = () => {
+  clearCompletedTodos = (e) => {
+    e.preventDefault()
+
     const newTodos = this.state.todos.filter(item => {
       return(item.completed === false)
     })
@@ -66,9 +91,8 @@ export default class App extends React.Component {
     })
   }
 
-
+  
   render() {
-    console.log('In App:', this.state.todos)
     return (
       <div>
         <div>
@@ -82,6 +106,8 @@ export default class App extends React.Component {
           <Form 
           addTodo={this.addTodo}
           allTodos={this.state.todos}
+          handleFormChanges={this.handleFormChanges}
+          handleFormSubmit={this.handleFormSubmit}
           clearTodos={this.clearCompletedTodos}
           />
         </div>
