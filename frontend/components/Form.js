@@ -15,10 +15,16 @@ export default class Form extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    this.props.addTodo(this.state.input)
 
-    //resets the input to the placeholder text
+    //prevents adding nothing as a todo
+    if(this.state.input === ""){
+      null
+    }
+    else(this.props.addTodo(this.state.input))
+
+    //resets the input + placeholder text
     e.target.reset()
+    this.setState({input: ''})
   }
 
   render() {
@@ -29,12 +35,13 @@ export default class Form extends React.Component {
         type = 'text'
         onChange={this.handleChanges} 
         placeholder='Todo'/>
-        <button 
-        > Submit </button>
+        <button> Submit </button>
       </div>
       <br/>
         <div>
-          <button> Hide Completed </button>
+          <button onClick={this.props.clearTodos}> 
+            Clear Completed
+          </button>
         </div>
       </form>
     )

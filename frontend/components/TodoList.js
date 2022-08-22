@@ -6,11 +6,11 @@ import Todo from './Todo'
 export default class TodoList extends React.Component {
 
   render() {
-    console.log('In TodoList:', this.props.allTodos)
     return (
       <div>
         {this.props.allTodos.map(item => {
-          return(<Todo 
+          return(
+          <Todo 
             key={item.id} 
             todo={item} 
             toggleTodo={this.props.toggleTodo}

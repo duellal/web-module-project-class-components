@@ -55,20 +55,35 @@ export default class App extends React.Component {
     })
   }
 
+  //Clearing completed todos:
+  clearCompletedTodos = () => {
+    const newTodos = this.state.todos.filter(item => {
+      return(item.completed === false)
+    })
+
+    this.setState({
+      todos: newTodos
+    })
+  }
+
 
   render() {
     console.log('In App:', this.state.todos)
     return (
       <div>
         <div>
-          Todos:
+          <h2>Todos:</h2>
           <TodoList 
           allTodos={this.state.todos}
           toggleTodo={this.toggleTodo}
           />
         </div>
         <div>
-          <Form addTodo={this.addTodo}/>
+          <Form 
+          addTodo={this.addTodo}
+          allTodos={this.state.todos}
+          clearTodos={this.clearCompletedTodos}
+          />
         </div>
       </div>
     )
