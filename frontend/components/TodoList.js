@@ -9,7 +9,6 @@ export default class TodoList extends React.Component {
     return (
       <div>
         {this.props.allTodos.map(item => {
-          // console.log('Mapping through items on todo list:', item)
           return(<Todo key={item.id} todo={item}/>)
         })
         }
