@@ -22,6 +22,7 @@ export default class App extends React.Component {
     }
   }
 
+  //Crossing out an item once clicked on
   toggleTodo = (id) => {
    const newTodoList = this.state.todos.map(item => {
     if(item.id === id){
@@ -39,6 +40,22 @@ export default class App extends React.Component {
    })
   }
 
+  //Adding an item to the list:
+  addTodo = (item) => {
+    const newTodo = {
+      name: item,
+      id: this.state.todos.length, 
+      completed: false
+    }
+
+    const newTodos = [...this.state.todos, newTodo]
+
+    this.setState({
+      todos: newTodos
+    })
+  }
+
+
   render() {
     console.log('In App:', this.state.todos)
     return (
@@ -51,7 +68,7 @@ export default class App extends React.Component {
           />
         </div>
         <div>
-          <Form />
+          <Form addTodo={this.addTodo}/>
         </div>
       </div>
     )
