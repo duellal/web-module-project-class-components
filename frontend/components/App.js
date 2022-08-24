@@ -47,7 +47,7 @@ export default class App extends React.Component {
   addTodo = (item) => {
     const newTodo = {
       name: item,
-      id: this.state.todos.length, 
+      id: Date.now(),
       completed: false
     }
 
@@ -106,6 +106,7 @@ export default class App extends React.Component {
           <Form 
           addTodo={this.addTodo}
           allTodos={this.state.todos}
+          handleFormValue={this.state.input}
           handleFormChanges={this.handleFormChanges}
           handleFormSubmit={this.handleFormSubmit}
           clearTodos={this.clearCompletedTodos}

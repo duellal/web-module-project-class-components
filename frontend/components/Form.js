@@ -8,6 +8,7 @@ export default class Form extends React.Component {
       <div>
         <input 
         type = 'text'
+        value={this.props.handleFormValue}
         onChange={this.props.handleFormChanges} 
         placeholder='Todo'/>
         <button> Submit </button>
