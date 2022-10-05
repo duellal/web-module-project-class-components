@@ -3,11 +3,13 @@
 ### On Render:
 - App renders correctly
 - App has a header of 'Todo App'
+   - Won't be able to do this, b/c this header is not in the App component
 - Todos have a header of 'Todos:'
-- List of todos renders
-- Input box renders
-- Submit button renders
-- Clear completed button renders
+
+- List of todos renders - may not be accessible within the App component
+- Input box renders - may not be accessible within the App component
+- Submit button renders - may not be accessible within the App component
+- Clear completed button renders - may not be accessible within the App component
 
 ### Adding Todo:
 - User cannot submit no text for a todo
