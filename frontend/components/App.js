@@ -96,7 +96,7 @@ export default class App extends React.Component {
     return (
       <div>
         <div>
-          <h2>Todos:</h2>
+          <h2 title='todo-list-header' role='heading'>Todos:</h2>
           <TodoList 
           allTodos={this.state.todos}
           toggleTodo={this.toggleTodo}
